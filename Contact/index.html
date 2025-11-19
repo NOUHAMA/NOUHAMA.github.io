@@ -4,11 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            color: #39FF14;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin: 12px 0;
+        }
+
+        a {
+            color: #39FF14;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-shadow: 0 0 8px #39FF14;
+        }
+
+        .contact-box {
+            background: #111;
+            border: 1px solid #39FF14;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 420px;
+            margin: 50px auto;
+            box-shadow: 0 0 15px rgba(57,255,20,0.3);
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 40px;
+            border: 1px solid #39FF14;
+            padding: 12px 24px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        .back-home:hover {
+            background-color: #39FF14;
+            color: #000;
+            text-shadow: none;
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>Contact Me</h1>
-    <p>You can reach me at: <a href="mailto:maach.nouha@gmail.com">your.email@example.com</a></p>
-    <p>Or connect via <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
-    <p><a href="../index.html">← Back to Home</a></p>
+    <div class="contact-box">
+        <p>📧 Email: <br>
+            <a href="mailto:maach.nouha@gmail.com">maach.nouha@gmail.com</a>
+        </p>
+
+        <p>💼 LinkedIn:<br>
+            <a href="https://www.linkedin.com/in/nouha-maach-371970183/" target="_blank">
+                linkedin.com/in/yourprofile
+            </a>
+        </p>
+
+        <p>📍 Feel free to reach out for collaborations, projects, or questions!</p>
+    </div>
+
+    <a href="../index.html" class="back-home">← Back to Home</a>
+
 </body>
 </html>
+
