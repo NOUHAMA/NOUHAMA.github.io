@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL Projects</title>
+
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #6a11cb, #2575fc);
-            --card-gradient: linear-gradient(135deg, #ffffff, #f0f4ff);
-            --accent: #ffca28;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
+            --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
+            --accent: #a5b4fc;
+            --text-dark: #2d2d2d;
+            --text-light: #6b7280;
         }
 
         body {
@@ -19,7 +20,7 @@
             background: var(--bg-gradient);
             margin: 0;
             padding: 40px 20px;
-            color: var(--text-light);
+            color: var(--text-dark);
         }
 
         h1 {
@@ -32,7 +33,7 @@
             font-size: 1.2em;
             max-width: 700px;
             margin: 0 auto 40px;
-            opacity: 0.9;
+            color: var(--text-light);
         }
 
         .projects {
@@ -45,8 +46,8 @@
 
         .project-card {
             background: var(--card-gradient);
-            border-radius: 14px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             width: 260px;
             padding: 25px;
             text-align: center;
@@ -56,8 +57,8 @@
         }
 
         .project-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
         }
 
         .project-card h3 {
@@ -67,7 +68,7 @@
 
         .project-card a {
             text-decoration: none;
-            color: #2575fc;
+            color: #6c7ae0;
             font-weight: bold;
         }
 
@@ -78,17 +79,19 @@
         a.back-home {
             display: inline-block;
             margin-top: 50px;
-            font-size: 1.2em;
+            font-size: 1.1em;
             text-decoration: none;
-            color: var(--text-light);
+            color: #6c7ae0;
             font-weight: bold;
+            transition: color 0.2s ease;
         }
 
         a.back-home:hover {
-            opacity: 0.8;
+            color: var(--accent);
         }
     </style>
 </head>
+
 <body>
 
 <h1>SQL Projects</h1>
