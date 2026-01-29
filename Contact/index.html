@@ -7,11 +7,11 @@
 
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #6a11cb, #2575fc);
-            --card-gradient: linear-gradient(135deg, #ffffff, #f0f4ff);
-            --accent: #ffca28;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
+            --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
+            --accent: #a5b4fc;
+            --text-dark: #2d2d2d;
+            --text-light: #6b7280;
         }
 
         body {
@@ -20,7 +20,7 @@
             background: var(--bg-gradient);
             margin: 0;
             padding: 60px 20px;
-            color: var(--text-light);
+            color: var(--text-dark);
         }
 
         h1 {
@@ -31,25 +31,25 @@
 
         p {
             font-size: 1.2em;
-            opacity: 0.9;
             margin: 12px 0;
+            color: var(--text-light);
         }
 
         a {
-            color: var(--accent);
+            color: #6c7ae0;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.2s ease;
+            transition: color 0.2s ease;
         }
 
         a:hover {
-            opacity: 0.8;
+            color: var(--accent);
         }
 
         .contact-box {
             background: var(--card-gradient);
-            border-radius: 14px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             padding: 35px;
             max-width: 450px;
             margin: 50px auto;
@@ -59,22 +59,25 @@
 
         .contact-box:hover {
             transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
         }
 
         .back-home {
             display: inline-block;
             margin-top: 40px;
             padding: 12px 26px;
-            font-size: 1.1em;
+            font-size: 1.05em;
             border-radius: 10px;
-            border: 2px solid var(--accent);
-            color: var(--text-light);
-            transition: 0.25s ease;
+            border: 2px solid #6c7ae0;
+            color: #6c7ae0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.25s ease;
         }
 
         .back-home:hover {
             background: var(--accent);
+            border-color: var(--accent);
             color: var(--text-dark);
         }
     </style>
@@ -102,5 +105,3 @@
 
 </body>
 </html>
-
-
