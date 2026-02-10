@@ -1,163 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Python Projects Portfolio</title>
 
 <style>
 :root {
-    --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
-    --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
-    --accent: #a5b4fc;
-    --text-dark: #2d2d2d;
-    --text-light: #6b7280;
+  --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
+  --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
+  --accent: #a5b4fc;
+  --text-dark: #2d2d2d;
+  --text-light: #6b7280;
 }
 
 /* PAGE */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    text-align: center;
-    background: var(--bg-gradient);
-    margin: 0;
-    padding: 40px 20px;
-    color: var(--text-dark);
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  background: var(--bg-gradient);
+  margin: 0;
+  padding: 40px 20px;
+  color: var(--text-dark);
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: 700;
-    margin: 0 0 10px;
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0 0 10px;
 }
 
 p {
-    font-size: 1.2em;
-    max-width: 750px;
-    margin: 10px auto 50px;
-    color: var(--text-light);
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 10px auto 50px;
+  color: var(--text-light);
 }
 
-/* GRID */
+/* GRID (CATEGORY CARDS) */
 .projects {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 35px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
 }
 
-/* CARD */
+/* CATEGORY CARD */
 .project-card {
-    background: var(--card-gradient);
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    width: 260px;
-    padding: 25px;
-    text-align: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--card-gradient);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
 }
 
 .project-card h3 {
-    font-size: 1.6em;
-    margin-bottom: 15px;
+  font-size: 1.6em;
+  margin: 0 0 15px;
+  text-align: center;
 }
 
-/* PROJECT LIST */
-.project-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* INNER PROJECT GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 10px;
 }
 
-.project-list li {
-    margin: 10px 0;
+/* MINI PROJECT CARD */
+.mini-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-list a {
-    text-decoration: none;
-    color: #4f46e5;
-    font-weight: 500;
-    transition: color 0.2s ease;
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-.project-list a:hover {
-    color: var(--accent);
+.mini-card h4 {
+  margin: 0 0 6px;
+  font-size: 1.1em;
+  color: var(--text-dark);
+}
+
+.mini-card p {
+  margin: 0 0 10px;
+  font-size: 0.95em;
+  color: var(--text-light);
+  line-height: 1.35;
+}
+
+/* BUTTON */
+.project-btn {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.project-btn:hover {
+  background: #6366f1;
+  transform: translateY(-1px);
 }
 
 /* BACK BUTTON */
 .back-home {
-    display: inline-block;
-    margin-top: 60px;
-    font-size: 1.1em;
-    color: #4f46e5;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  display: inline-block;
+  margin-top: 60px;
+  font-size: 1.1em;
+  color: #4f46e5;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .back-home:hover {
-    color: var(--accent);
+  color: var(--accent);
 }
 </style>
 </head>
 
 <body>
+  <h1>Python Portfolio</h1>
+  <p>
+    Explore my work across data analysis, exploration, visualization and web scraping.
+    Each section contains selected practical projects built with Python.
+  </p>
 
-<h1>Python Portfolio</h1>
-<p>
-Explore my work across data analysis, exploration, visualization and web scraping.
-Each section contains selected practical projects built with Python.
-</p>
-
-<div class="projects">
+  <div class="projects">
 
     <!-- DATA ANALYSIS -->
     <div class="project-card">
-        <h3>📊 Data Analysis</h3>
-        <ul class="project-list">
-            <li><a href="analysis_project1.html" target="_blank"></a></li>
-            <li><a href="analysis_project2.html" target="_blank"></a></li>
-            <li><a href="analysis_project3.html" target="_blank"></a></li>
-        </ul>
+      <h3>📊 Data Analysis</h3>
+
+      <div class="project-grid">
+        <div class="mini-card">
+          <h4>Project 1: Sales Data Analysis</h4>
+          <p>Cleaned and analyzed retail sales data using Pandas and NumPy.</p>
+          <a href="analysis_project1.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 2: Netflix Dataset Analysis</h4>
+          <p>Explored trends of movies vs shows, genres, and release years.</p>
+          <a href="analysis_project2.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 3: COVID-19 Data Study</h4>
+          <p>Compared cases by country and created insights from public data.</p>
+          <a href="analysis_project3.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+      </div>
     </div>
 
     <!-- DATA EXPLORATION -->
     <div class="project-card">
-        <h3>🔍 Data Exploration</h3>
-        <ul class="project-list">
-            <li><a href="exploration_project1.html" target="_blank"></a></li>
-            <li><a href="exploration_project2.html" target="_blank"></a></li>
-            <li><a href="exploration_project3.html" target="_blank"></a></li>
-        </ul>
+      <h3>🔍 Data Exploration</h3>
+
+      <div class="project-grid">
+        <div class="mini-card">
+          <h4>Project 1: EDA - Housing Prices</h4>
+          <p>Performed exploratory analysis and found correlations + outliers.</p>
+          <a href="exploration_project1.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 2: EDA - Customer Churn</h4>
+          <p>Investigated churn patterns and segmented customers for insights.</p>
+          <a href="exploration_project2.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 3: EDA - Sports Stats</h4>
+          <p>Explored player performance metrics and identified key drivers.</p>
+          <a href="exploration_project3.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+      </div>
     </div>
 
     <!-- DATA VISUALIZATION -->
     <div class="project-card">
-        <h3>📈 Data Visualization</h3>
-        <ul class="project-list">
-            <li><a href="viz_project1.html" target="_blank"></a></li>
-            <li><a href="viz_project2.html" target="_blank"></a></li>
-            <li><a href="viz_project3.html" target="_blank"></a></li>
-        </ul>
+      <h3>📈 Data Visualization</h3>
+
+      <div class="project-grid">
+        <div class="mini-card">
+          <h4>Project 1: Matplotlib Dashboard</h4>
+          <p>Built charts and comparisons using Matplotlib + Pandas.</p>
+          <a href="viz_project1.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 2: Seaborn Visual Insights</h4>
+          <p>Created distribution + correlation plots for data storytelling.</p>
+          <a href="viz_project2.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 3: Interactive Charts</h4>
+          <p>Used Plotly to build interactive visuals and hover tooltips.</p>
+          <a href="viz_project3.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+      </div>
     </div>
 
     <!-- WEB SCRAPING -->
     <div class="project-card">
-        <h3>🌐 Web Scraping</h3>
-        <ul class="project-list">
-            <li><a href="scraping_project1.html" target="_blank"></a></li>
-            <li><a href="scraping_project2.html" target="_blank"></a></li>
-            <li><a href="scraping_project3.html" target="_blank"></a></li>
-        </ul>
+      <h3>🌐 Web Scraping</h3>
+
+      <div class="project-grid">
+        <div class="mini-card">
+          <h4>Project 1: Product Price Scraper</h4>
+          <p>Scraped product listings and saved results into CSV files.</p>
+          <a href="scraping_project1.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 2: News Headlines Scraper</h4>
+          <p>Collected headlines and timestamps from a news website.</p>
+          <a href="scraping_project2.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+
+        <div class="mini-card">
+          <h4>Project 3: Job Listings Scraper</h4>
+          <p>Extracted job titles, companies, and links for job search tracking.</p>
+          <a href="scraping_project3.html" class="project-btn" target="_blank">View Project</a>
+        </div>
+      </div>
     </div>
 
-</div>
+  </div>
 
-<a href="../index.html" class="back-home">← Back to Home</a>
-
+  <a href="../index.html" class="back-home">← Back to Home</a>
 </body>
 </html>
