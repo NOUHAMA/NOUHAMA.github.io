@@ -1,140 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Python Projects Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Projects Portfolio</title>
 
-<style>
-:root {
-  --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
-  --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
-  --accent: #a5b4fc;
-  --text-dark: #2d2d2d;
-  --text-light: #6b7280;
-}
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
+      --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
+      --accent: #a5b4fc;
+      --text-dark: #2d2d2d;
+      --text-light: #6b7280;
+    }
 
-/* PAGE */
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  text-align: center;
-  background: var(--bg-gradient);
-  margin: 0;
-  padding: 40px 20px;
-  color: var(--text-dark);
-}
+    /* PAGE */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      text-align: center;
+      background: var(--bg-gradient);
+      margin: 0;
+      padding: 40px 20px;
+      color: var(--text-dark);
+    }
 
-h1 {
-  font-size: 3em;
-  font-weight: 700;
-  margin: 0 0 10px;
-}
+    h1 {
+      font-size: 3em;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
 
-p {
-  font-size: 1.2em;
-  max-width: 800px;
-  margin: 10px auto 50px;
-  color: var(--text-light);
-}
+    p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 10px auto 50px;
+      color: var(--text-light);
+    }
 
-/* GRID (CATEGORY CARDS) */
-.projects {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px;
-}
+    /* GRID (CATEGORY CARDS) */
+    .projects {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 35px;
+      align-items: stretch;
+    }
 
-/* CATEGORY CARD */
-.project-card {
-  background: var(--card-gradient);
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  width: 300px;
-  padding: 25px;
-  text-align: left;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+    /* CATEGORY CARD */
+    .project-card {
+      background: var(--card-gradient);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      width: 300px;
+      padding: 25px;
+      text-align: left;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
-.project-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
-}
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+    }
 
-.project-card h3 {
-  font-size: 1.6em;
-  margin: 0 0 15px;
-  text-align: center;
-}
+    .project-card h3 {
+      font-size: 1.6em;
+      margin: 0 0 15px;
+      text-align: center;
+    }
 
-/* INNER PROJECT GRID */
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  margin-top: 10px;
-}
+    /* INNER PROJECT GRID */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 10px;
+    }
 
-/* MINI PROJECT CARD */
-.mini-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    /* MINI PROJECT CARD */
+    .mini-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.mini-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-}
+    .mini-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
 
-.mini-card h4 {
-  margin: 0 0 6px;
-  font-size: 1.1em;
-  color: var(--text-dark);
-}
+    .mini-card h4 {
+      margin: 0 0 6px;
+      font-size: 1.1em;
+      color: var(--text-dark);
+    }
 
-.mini-card p {
-  margin: 0 0 10px;
-  font-size: 0.95em;
-  color: var(--text-light);
-  line-height: 1.35;
-}
+    .mini-card p {
+      margin: 0 0 10px;
+      font-size: 0.95em;
+      color: var(--text-light);
+      line-height: 1.35;
+    }
 
-/* BUTTON */
-.project-btn {
-  display: inline-block;
-  padding: 7px 12px;
-  border-radius: 8px;
-  background: #4f46e5;
-  color: white;
-  text-decoration: none;
-  font-size: 0.9em;
-  font-weight: 600;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
+    /* BUTTON */
+    .project-btn {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 8px;
+      background: #4f46e5;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
 
-.project-btn:hover {
-  background: #6366f1;
-  transform: translateY(-1px);
-}
+    .project-btn:hover {
+      background: #6366f1;
+      transform: translateY(-1px);
+    }
 
-/* BACK BUTTON */
-.back-home {
-  display: inline-block;
-  margin-top: 60px;
-  font-size: 1.1em;
-  color: #4f46e5;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+    /* BACK BUTTON */
+    .back-home {
+      display: inline-block;
+      margin-top: 60px;
+      font-size: 1.1em;
+      color: #4f46e5;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
 
-.back-home:hover {
-  color: var(--accent);
-}
-</style>
+    .back-home:hover {
+      color: var(--accent);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -146,11 +156,11 @@ p {
 
   <div class="projects">
 
-    <!-- DATA CLEANING -->
+    <!-- DATA ANALYSIS -->
     <div class="project-card">
       <h3>📊 Data Analysis</h3>
-
       <div class="project-grid">
+
         <div class="mini-card">
           <h4>Project 1: Dealing_with_null_values</h4>
           <p>Cleaned and analyzed retail sales data using Pandas and NumPy.</p>
@@ -163,45 +173,48 @@ p {
           <a href="Cleaning_inconsistent_data_regex.html" class="project-btn" target="_blank">View Project</a>
         </div>
 
-   
+      </div>
+    </div>
 
     <!-- DATA EXPLORATION -->
     <div class="project-card">
       <h3>🔍 Data Exploration</h3>
-
       <div class="project-grid">
+
         <div class="mini-card">
           <h4>Project 1: Exploring DATA with Group By</h4>
           <p>Performed exploratory analysis and found correlations + outliers.</p>
           <a href="groupby.html" class="project-btn" target="_blank">View Project</a>
         </div>
 
+      </div>
+    </div>
 
     <!-- DATA VISUALIZATION -->
     <div class="project-card">
       <h3>📈 Data Visualization</h3>
-
       <div class="project-grid">
+
         <div class="mini-card">
           <h4>Project 1: Matplotlib Dashboard</h4>
           <p>Built charts and comparisons using Matplotlib + Pandas.</p>
-          <a href="visualise (1).html" class="project-btn" target="_blank">View Project</a>
+          <a href="visualise_1.html" class="project-btn" target="_blank">View Project</a>
         </div>
 
- 
+      </div>
+    </div>
 
     <!-- WEB SCRAPING -->
     <div class="project-card">
       <h3>🌐 Web Scraping</h3>
-
       <div class="project-grid">
+
         <div class="mini-card">
           <h4>Project 1: Website Scraper</h4>
           <p>Scraped product listings and saved results into CSV files.</p>
-          <a href="scraping countries.html" class="project-btn" target="_blank">View Project</a>
+          <a href="scraping_countries.html" class="project-btn" target="_blank">View Project</a>
         </div>
 
-  
       </div>
     </div>
 
