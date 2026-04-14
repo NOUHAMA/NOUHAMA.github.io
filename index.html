@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Portfolio</title>
+    <title>Nouha MAACH | Portfolio</title>
 
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
             --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
             --accent: #a5b4fc;
+            --accent-dark: #6c7ae0;
             --text-dark: #2d2d2d;
             --text-light: #6b7280;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -21,111 +28,148 @@
             margin: 0;
             padding: 0;
             color: var(--text-dark);
+            min-height: 100vh;
         }
 
         header {
-            padding: 60px 20px;
-            background: transparent;
+            padding: 80px 20px 40px;
         }
 
         h1 {
             margin: 0;
-            font-size: 3em;
+            font-size: 3rem;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        h2.subtitle {
+        .subtitle {
             font-weight: 300;
-            margin-top: 10px;
+            margin-top: 12px;
             color: var(--text-light);
+            font-size: 1.4rem;
         }
 
-        p {
-            font-size: 1.3em;
-            max-width: 700px;
-            margin: 15px auto 0;
+        .intro {
+            font-size: 1.15rem;
+            max-width: 760px;
+            margin: 20px auto 0;
             color: var(--text-light);
+            line-height: 1.7;
+            padding: 0 20px;
         }
 
         .projects {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 50px 0;
-            gap: 35px;
+            gap: 30px;
+            padding: 20px 20px 80px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .project-card {
             background: var(--card-gradient);
-            border-radius: 16px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-            width: 230px;
-            padding: 25px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            width: 260px;
+            padding: 30px 25px;
             text-align: center;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            cursor: pointer;
             color: var(--text-dark);
         }
 
         .project-card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
         .project-card h2 {
-            font-size: 1.6em;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            margin: 0 0 12px;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0 0 18px;
         }
 
         .project-card a {
+            display: inline-block;
             text-decoration: none;
-            color: #6c7ae0;
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
+            color: white;
+            background: var(--accent-dark);
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: background 0.25s ease, transform 0.25s ease;
         }
 
         .project-card a:hover {
-            color: var(--accent);
+            background: var(--accent);
+            color: var(--text-dark);
+            transform: scale(1.03);
+        }
+
+        footer {
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            .subtitle {
+                font-size: 1.15rem;
+            }
+
+            .project-card {
+                width: 100%;
+                max-width: 320px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Nouha MAACH</h1>
-    <h2 class="subtitle">Financial Analyst</h2>
-    <p>Welcome to my portfolio! Here you'll find my work in data analysis, coding, and visualization.</p>
-</header>
+    <header>
+        <h1>Nouha MAACH</h1>
+        <h2 class="subtitle">Financial Analyst</h2>
+        <p class="intro">
+            Welcome to my portfolio. Here you can explore my work in data analysis,
+            Python, SQL, and visualization projects.
+        </p>
+    </header>
 
-<div class="projects">
-    <div class="project-card">
-        <h2>Python</h2>
-        <a href="Python/index.html" target="_blank">View Projects</a>
-    </div>
-<div class="projects">
-    <div class="project-card">
-        <h2>Python</h2>
-        <a href="Python/index.html" target="_blank">View Projects</a>
-    </div>
+    <section class="projects">
+        <div class="project-card">
+            <h2>Python</h2>
+            <p>Explore my Python projects in data analysis, automation, and problem-solving.</p>
+            <a href="Python/index.html" target="_blank">View Projects</a>
+        </div>
 
-<div class="project-card">
-        <h2>SQL</h2>
-        <a href="SQL/index.html" target="_blank">View Projects</a>
-    </div>
+        <div class="project-card">
+            <h2>SQL</h2>
+            <p>Discover my SQL work, including data pipelines, transformation, and analysis projects.</p>
+            <a href="SQL/index.html" target="_blank">View Projects</a>
+        </div>
 
-    <div class="project-card">
-        <h2>Contact</h2>
-        <a href="Contact/index.html" target="_blank">Get in Touch</a>
-    </div>
-</div>
+        <div class="project-card">
+            <h2>Contact</h2>
+            <p>Get in touch for collaborations, opportunities, or professional inquiries.</p>
+            <a href="Contact/index.html" target="_blank">Get in Touch</a>
+        </div>
+    </section>
 
-    <div class="project-card">
-        <h2>Contact</h2>
-        <a href="Contact/index.html" target="_blank">Get in Touch</a>
-    </div>
-</div>
+    <footer>
+        <p>© 2026 Nouha MAACH. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
