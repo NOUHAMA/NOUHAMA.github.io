@@ -159,6 +159,29 @@
             This project presents an end-to-end analytics pipeline built around SQL, Snowflake, and dbt.
             The workflow covers raw data ingestion, staging, testing, documentation, snapshotting, and
             transformation into analysis-ready models for reporting and decision-making.
+
+
+
+            <div class="card">
+    <h2>Data Model & Architecture</h2>
+
+    <p>
+        The following diagram represents the structure of the data warehouse,
+        including fact and dimension tables. The model follows a star schema
+        design, where the central <strong>FACT_SALES</strong> table is connected
+        to multiple dimension tables such as customer, product, geography,
+        and time-related data.
+    </p>
+
+    <img src="images/erd.png" 
+         alt="Data warehouse schema diagram" 
+         style="width:100%; border-radius:14px; margin-top:15px; box-shadow: 0 6px 18px rgba(0,0,0,0.1);">
+
+    <p style="margin-top:15px;">
+        This structure enables efficient querying and supports analytical use cases
+        such as sales performance, customer segmentation, and geographic analysis.
+    </p>
+</div>
         </p>
     </header>
 
@@ -201,8 +224,7 @@
             <h2>dbt Project Configuration</h2>
             <p>
                 The dbt project was structured to separate models into clear layers: staging, intermediate, and marts.
-                This organization improves readability, maintenance, and scalability. Documentation persistence was enabled,
-                and schemas were assigned by model layer to keep the warehouse well organized. :contentReference[oaicite:1]{index=1}
+                This organization improves readability, maintenance, and scalability.
             </p>
 
 <pre><code>name: my_analytics
@@ -232,7 +254,7 @@ models:
                 Source metadata was defined in <strong>source.yml</strong> to describe the raw Snowflake tables and apply tests
                 on critical columns. Primary identifiers such as <strong>CATEGORY_ID</strong>, <strong>PRODUCT_ID</strong>,
                 <strong>CUSTOMER_ID</strong>, and <strong>ORDER_KEY</strong> were validated with <strong>unique</strong> and
-                <strong>not_null</strong> checks. Freshness rules were also configured on the fact table to monitor data recency. :contentReference[oaicite:2]{index=2}
+                <strong>not_null</strong> checks. Freshness rules were also configured on the fact table to monitor data recency.
             </p>
 
 <pre><code>version: 2
@@ -255,7 +277,7 @@ sources:
             <p>
                 Model metadata was documented in <strong>property.yml</strong> to describe the staging models and define the meaning
                 of important columns. This helps make the project easier to understand, improves collaboration, and keeps the
-                transformation logic well documented for future use. :contentReference[oaicite:3]{index=3}
+                transformation logic well documented for future use. 
             </p>
 
             <ul>
@@ -270,7 +292,7 @@ sources:
             <p>
                 A snapshot was configured on the <strong>FACT_SALES</strong> table using a timestamp strategy. This allows the
                 pipeline to preserve historical changes and track updates over time instead of only keeping the latest version
-                of the data. This is especially useful for analytical consistency and auditability. :contentReference[oaicite:4]{index=4}
+                of the data. This is especially useful for analytical consistency and auditability. 
             </p>
 
 <pre><code>snapshots:
@@ -288,7 +310,7 @@ sources:
                 The staging layer was used to standardize the raw source data and prepare it for downstream transformations.
                 At this stage, source tables were cleaned, renamed, and organized into consistent structures before being
                 reused in later models. The staging diagram and staged elements can be added here to visually explain the flow
-                of the pipeline from raw data to refined models. :contentReference[oaicite:5]{index=5}
+                of the pipeline from raw data to refined models. 
             </p>
         </div>
 
