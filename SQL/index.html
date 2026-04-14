@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Pipeline Project</title>
+</head>
+<body style="font-family: Arial; padding: 40px; max-width: 800px; margin: auto;">
 
+    <h1>SQL Pipeline Project</h1>
+
+    <p>
+        This project focuses on building a data pipeline using SQL to extract,
+        transform, and analyze structured data.
+    </p>
+
+    <h2>Pipeline Steps</h2>
+    <ul>
+        <li>Extraction: Load raw data</li>
+        <li>Transformation: Clean and join tables</li>
+        <li>Loading: Store final tables</li>
+        <li>Analysis: Generate insights</li>
+    </ul>
+
+    <h2>Example Query</h2>
+    <pre>
+SELECT customer_id, SUM(amount) AS total_spent
+FROM orders
+GROUP BY customer_id
+ORDER BY total_spent DESC;
+    </pre>
+
+    <h2>Challenges</h2>
+    <p>
+        Optimizing SQL queries and handling large datasets efficiently.
+    </p>
+
+</body>
+</html>
