@@ -20,6 +20,7 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: var(--bg-gradient);
     margin: 0;
+    color: var(--text-dark);
 }
 
 header {
@@ -27,9 +28,15 @@ header {
     padding: 70px 20px 30px;
 }
 
-h1 { font-size: 2.8rem; margin: 0; }
+h1 {
+    font-size: 2.8rem;
+    margin: 0;
+}
 
-.subtitle { color: var(--text-light); }
+.subtitle {
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
 
 .intro {
     max-width: 850px;
@@ -52,7 +59,20 @@ h1 { font-size: 2.8rem; margin: 0; }
     margin-bottom: 28px;
 }
 
-.card h2 { margin-top: 0; }
+.card h2 {
+    margin-top: 0;
+}
+
+.card h3 {
+    color: var(--accent-dark);
+    margin-top: 20px;
+}
+
+.card p,
+.card li {
+    color: var(--text-light);
+    line-height: 1.7;
+}
 
 img {
     width: 100%;
@@ -68,24 +88,30 @@ img {
     color: var(--text-light);
     border-radius: 14px;
     margin-top: 15px;
+    background: #f8faff;
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 15px;
 }
 
 .tag {
     background: #eef2ff;
     padding: 8px 14px;
     border-radius: 999px;
+    color: var(--accent-dark);
+    font-weight: 600;
 }
 
 pre {
     background: #f4f6ff;
     padding: 15px;
     border-radius: 10px;
+    overflow-x: auto;
+    color: var(--text-dark);
 }
 
 .btn {
@@ -94,8 +120,14 @@ pre {
     padding: 10px 18px;
     border-radius: 10px;
     text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
 
+.btn:hover {
+    background: var(--accent);
+    color: var(--text-dark);
+}
 </style>
 </head>
 
@@ -112,94 +144,139 @@ pre {
 
 <div class="container">
 
-<!-- ERD -->
-<div class="card">
-    <h2>Data Model & Architecture</h2>
-    <p>Star schema centered on FACT_SALES connected to dimensions.</p>
-
-    <img src="0. erd.png" alt="ERD Diagram">
-</div>
-
-<!-- Snowflake Placeholder -->
-<div class="card">
-    <h2>Snowflake Implementation</h2>
-    <p>SQL scripts used to create tables, load data, and define relationships.</p>
-
-    <div class="placeholder">
-        📌 Add Snowflake Script Screenshot Here
+    <!-- ERD -->
+    <div class="card">
+        <h2>Data Model & Architecture</h2>
+        <p>
+            Star schema centered on <strong>FACT_SALES</strong> and connected to
+            multiple dimension tables for customer, product, order, and geography analysis.
+        </p>
+        <img src="0. erd.png" alt="ERD Diagram">
     </div>
-</div>
 
-<!-- Pipeline -->
-<div class="card">
-    <h2>Pipeline Overview</h2>
-    <p>
-        Data imported from Kaggle → loaded into Snowflake → transformed with dbt →
-        validated and structured into analytics-ready models.
-    </p>
+    <!-- Pipeline Overview -->
+    <div class="card">
+        <h2>Pipeline Overview</h2>
+        <p>
+            Data imported from Kaggle was first loaded into Snowflake, then transformed with dbt
+            through staging, intermediate, and mart layers. The pipeline was designed to ensure
+            data quality, consistency, and clear business-oriented reporting.
+        </p>
 
-    <div class="tags">
-        <span class="tag">SQL</span>
-        <span class="tag">Snowflake</span>
-        <span class="tag">dbt</span>
+        <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">dbt</span>
+        </div>
     </div>
-</div>
 
-<div class="card">
-    <h2>Staging Layer</h2>
-    <p>
-        Raw data is cleaned, standardized, and prepared for transformation.
-    </p>
+    <!-- Data Ingestion in Snowflake -->
+    <div class="card">
+        <h2>1. Data Ingestion in Snowflake</h2>
+        <p>
+            The first step of the pipeline consisted of loading the raw dataset into Snowflake.
+            This ingestion layer created the foundation for the rest of the transformation workflow,
+            enabling structured storage, scalable querying, and integration with dbt models.
+        </p>
 
-    <div class="placeholder">
-        <img src="Screenshot 2026-04-14 110940.png" alt="Staging diagram">
+        <div class="placeholder">
+            📌 Add Snowflake Data Ingestion Screenshot Here
+        </div>
     </div>
-</div>
 
-<!-- Intermediate -->
-<div class="card">
-    <h2>Intermediate Layer</h2>
-    <ul>
-        <li>int_product</li>
-        <li>int_customer</li>
-        <li>int_geography</li>
-        <li>int_order</li>
-        <li>int_sales_enriched</li>
-        <li>int_order_sales</li>
-        <li>int_daily_sales</li>
-        <li>int_customer_sales_summary</li>
-    </ul>
-</div>
+    <!-- dbt project.yml -->
+    <div class="card">
+        <h2>2. dbt Project Configuration</h2>
+        <p>
+            The <strong>dbt_project.yml</strong> file defines the structure of the project and controls
+            how models are organized across staging, intermediate, and mart layers. It also helps standardize
+            schemas, materializations, and the general project setup.
+        </p>
 
-<!-- Mart -->
-<div class="card">
-    <h2>Mart Layer</h2>
+        <div class="placeholder">
+            📌 Add dbt Project Configuration Screenshot Here
+        </div>
+    </div>
 
-    <h3>Finance</h3>
-    <ul>
-        <li>fct_finance_sales</li>
-        <li>fct_finance_orders</li>
-        <li>mart_finance_profitability_by_month</li>
-    </ul>
+    <!-- Source Metadata -->
+    <div class="card">
+        <h2>3. Source Metadata</h2>
+        <p>
+            Source metadata was defined to document raw tables and apply data quality checks such as
+            <strong>unique</strong> and <strong>not_null</strong> tests. This layer makes the project more
+            reliable and easier to maintain by validating key business entities directly from the source.
+        </p>
 
-    <h3>Marketing</h3>
-    <ul>
-        <li>dim_marketing_customer</li>
-        <li>mart_marketing_customer_segments</li>
-        <li>mart_marketing_product_demand</li>
-    </ul>
-</div>
+        <div class="placeholder">
+            📌 Add Source Metadata Screenshot Here
+        </div>
+    </div>
 
-<!-- Outcome -->
-<div class="card">
-    <h2>Project Outcome</h2>
-    <p>
-        Built a scalable SQL pipeline with strong data quality, modular transformations,
-        and clear data modeling for analytics.
-    </p>
+    <!-- Staging -->
+    <div class="card">
+        <h2>Staging Layer</h2>
+        <p>
+            Raw data is cleaned, standardized, and prepared for transformation.
+        </p>
 
-    <a href="#" class="btn">View Project</a>
-</div>
+        <div class="placeholder">
+            <img src="Screenshot 2026-04-14 110940.png" alt="Staging diagram">
+        </div>
+    </div>
+
+    <!-- Intermediate -->
+    <div class="card">
+        <h2>Intermediate Layer</h2>
+        <p>
+            The intermediate layer combines and enriches staged data into reusable transformation models
+            that support downstream finance and marketing marts.
+        </p>
+        <ul>
+            <li>int_product</li>
+            <li>int_customer</li>
+            <li>int_geography</li>
+            <li>int_order</li>
+            <li>int_sales_enriched</li>
+            <li>int_order_sales</li>
+            <li>int_daily_sales</li>
+            <li>int_customer_sales_summary</li>
+        </ul>
+    </div>
+
+    <!-- Mart -->
+    <div class="card">
+        <h2>Mart Layer</h2>
+        <p>
+            The mart layer organizes the final business-ready models into finance and marketing domains,
+            making them easier to use for reporting, KPI analysis, and decision-making.
+        </p>
+
+        <h3>Finance</h3>
+        <ul>
+            <li>fct_finance_sales</li>
+            <li>fct_finance_orders</li>
+            <li>mart_finance_profitability_by_month</li>
+        </ul>
+
+        <h3>Marketing</h3>
+        <ul>
+            <li>dim_marketing_customer</li>
+            <li>mart_marketing_customer_segments</li>
+            <li>mart_marketing_product_demand</li>
+        </ul>
+    </div>
+
+    <!-- Outcome -->
+    <div class="card">
+        <h2>Project Outcome</h2>
+        <p>
+            Built a scalable SQL pipeline with strong data quality, modular transformations,
+            and clear data modeling for analytics. This project demonstrates practical skills
+            in data warehousing, transformation design, and analytics engineering.
+        </p>
+
+        <a href="#" class="btn">View Project</a>
+    </div>
 
 </div>
 
