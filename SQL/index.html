@@ -1,332 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQL Projects | Nouha MAACH</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Projects | Nouha MAACH</title>
 
-    <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
-            --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
-            --accent: #a5b4fc;
-            --accent-dark: #6c7ae0;
-            --text-dark: #2d2d2d;
-            --text-light: #6b7280;
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        }
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
+    --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
+    --accent: #a5b4fc;
+    --accent-dark: #6c7ae0;
+    --text-dark: #2d2d2d;
+    --text-light: #6b7280;
+    --shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
 
-        * {
-            box-sizing: border-box;
-        }
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg-gradient);
+    margin: 0;
+}
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg-gradient);
-            margin: 0;
-            padding: 0;
-            color: var(--text-dark);
-        }
+header {
+    text-align: center;
+    padding: 70px 20px 30px;
+}
 
-        header {
-            text-align: center;
-            padding: 70px 20px 30px;
-        }
+h1 { font-size: 2.8rem; margin: 0; }
 
-        h1 {
-            margin: 0;
-            font-size: 2.8rem;
-        }
+.subtitle { color: var(--text-light); }
 
-        .subtitle {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
+.intro {
+    max-width: 850px;
+    margin: 20px auto;
+    color: var(--text-light);
+    line-height: 1.7;
+}
 
-        .intro {
-            max-width: 850px;
-            margin: 20px auto 0;
-            padding: 0 20px;
-            color: var(--text-light);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
+.container {
+    max-width: 1050px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-        .container {
-            max-width: 1050px;
-            margin: 40px auto 70px;
-            padding: 0 20px;
-        }
+.card {
+    background: var(--card-gradient);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 28px;
+}
 
-        .card {
-            background: var(--card-gradient);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            padding: 30px;
-            margin-bottom: 28px;
-        }
+.card h2 { margin-top: 0; }
 
-        .card h2 {
-            margin-top: 0;
-            margin-bottom: 14px;
-            font-size: 1.7rem;
-        }
+img {
+    width: 100%;
+    border-radius: 14px;
+    margin-top: 15px;
+    box-shadow: var(--shadow);
+}
 
-        .card h3 {
-            margin-top: 28px;
-            margin-bottom: 10px;
-            color: var(--accent-dark);
-            font-size: 1.15rem;
-        }
+.placeholder {
+    border: 2px dashed var(--accent);
+    padding: 60px;
+    text-align: center;
+    color: var(--text-light);
+    border-radius: 14px;
+    margin-top: 15px;
+}
 
-        .card p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin: 0 0 12px;
-        }
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-        .card ul {
-            color: var(--text-light);
-            line-height: 1.8;
-            padding-left: 20px;
-        }
+.tag {
+    background: #eef2ff;
+    padding: 8px 14px;
+    border-radius: 999px;
+}
 
-        .card li {
-            margin-bottom: 8px;
-        }
+pre {
+    background: #f4f6ff;
+    padding: 15px;
+    border-radius: 10px;
+}
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
+.btn {
+    background: var(--accent-dark);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+}
 
-        .tag {
-            background: #eef2ff;
-            color: var(--accent-dark);
-            padding: 9px 14px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        pre {
-            background: #f4f6ff;
-            padding: 18px;
-            border-radius: 12px;
-            overflow-x: auto;
-            font-size: 0.92rem;
-            line-height: 1.6;
-            color: var(--text-dark);
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 18px;
-            background: var(--accent-dark);
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            background: var(--accent);
-            color: var(--text-dark);
-        }
-
-        .back-link {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .back-link a {
-            text-decoration: none;
-            color: var(--accent-dark);
-            font-weight: 600;
-        }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>SQL Projects</h1>
-        <p class="subtitle">Data Pipeline Project</p>
-        <p class="intro">
-            This project presents an end-to-end analytics pipeline built around SQL, Snowflake, and dbt.
-            The workflow covers raw data ingestion, staging, testing, documentation, snapshotting, and
-            transformation into analysis-ready models for reporting and decision-making.
+<header>
+    <h1>SQL Projects</h1>
+    <p class="subtitle">Data Pipeline Project</p>
+    <p class="intro">
+        End-to-end analytics pipeline built with SQL, Snowflake, and dbt,
+        covering ingestion, transformation, testing, and data modeling.
+    </p>
+</header>
 
+<div class="container">
 
-
-            <div class="card">
+<!-- ERD -->
+<div class="card">
     <h2>Data Model & Architecture</h2>
+    <p>Star schema centered on FACT_SALES connected to dimensions.</p>
 
-    <p>
-        The following diagram represents the structure of the data warehouse,
-        including fact and dimension tables. The model follows a star schema
-        design, where the central <strong>FACT_SALES</strong> table is connected
-        to multiple dimension tables such as customer, product, geography,
-        and time-related data.
-    </p>
-
-    <img src="0.erd.png" 
-         alt="Data warehouse schema diagram" 
-         style="width:100%; border-radius:14px; margin-top:15px; box-shadow: 0 6px 18px rgba(0,0,0,0.1);">
-
-    <p style="margin-top:15px;">
-        This structure enables efficient querying and supports analytical use cases
-        such as sales performance, customer segmentation, and geographic analysis.
-    </p>
+    <img src="0.erd.png" alt="ERD Diagram">
 </div>
-        </p>
-    </header>
 
-    <div class="container">
+<!-- Snowflake Placeholder -->
+<div class="card">
+    <h2>Snowflake Implementation</h2>
+    <p>SQL scripts used to create tables, load data, and define relationships.</p>
 
-        <div class="card">
-            <h2>Pipeline Overview</h2>
-            <p>
-                This project was developed using a dataset imported from Kaggle and processed through a modern data workflow.
-                Raw data was loaded into Snowflake, structured with dbt, validated using tests, and transformed into clean
-                analytical models. The objective was to create a reliable and maintainable pipeline that supports data quality,
-                traceability, and efficient reporting.
-            </p>
-
-            <h3>Tools Used</h3>
-            <div class="tags">
-                <span class="tag">SQL</span>
-                <span class="tag">Snowflake</span>
-                <span class="tag">dbt</span>
-        
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Project Workflow</h2>
-            <ul>
-                <li><strong>Data Source:</strong> Imported a business dataset from Kaggle.</li>
-                <li><strong>Storage Layer:</strong> Loaded raw data into Snowflake tables.</li>
-                <li><strong>Transformation Layer:</strong> Organized models with dbt into staging, intermediate, and marts layers.</li>
-                <li><strong>Quality Control:</strong> Added source tests such as <strong>unique</strong> and <strong>not_null</strong> to validate key fields.</li>
-                <li><strong>Documentation:</strong> Defined metadata in YAML files for sources, models, and columns.</li>
-                <li><strong>Historical Tracking:</strong> Used snapshots with a timestamp strategy to capture changes in fact data over time.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>dbt Project Configuration</h2>
-            <p>
-                The dbt project was structured to separate models into clear layers: staging, intermediate, and marts.
-                This organization improves readability, maintenance, and scalability.
-            </p>
-
-<pre><code>name: my_analytics
-version: "1.0.0"
-config-version: 2
-
-profile: analytics
-
-model-paths: ["models"]
-
-models:
-  my_analytics:
-    staging:
-      +materialized: view
-      +schema: staging
-    intermediate:
-      +materialized: view
-      +schema: intermediate
-    marts:
-      +materialized: table
-      +schema: marts</code></pre>
-        </div>
-
-        <div class="card">
-            <h2>Source Definition and Data Quality</h2>
-            <p>
-                Source metadata was defined in <strong>source.yml</strong> to describe the raw Snowflake tables and apply tests
-                on critical columns. Primary identifiers such as <strong>CATEGORY_ID</strong>, <strong>PRODUCT_ID</strong>,
-                <strong>CUSTOMER_ID</strong>, and <strong>ORDER_KEY</strong> were validated with <strong>unique</strong> and
-                <strong>not_null</strong> checks. Freshness rules were also configured on the fact table to monitor data recency.
-            </p>
-
-<pre><code>version: 2
-
-sources:
-  - name: superstore
-    database: ecommerce_project
-    schema: raw
-    tables:
-      - name: CATEGORY_DIM
-        columns:
-          - name: CATEGORY_ID
-            tests:
-              - unique
-              - not_null</code></pre>
-        </div>
-
-        <div class="card">
-            <h2>Model Properties and Documentation</h2>
-            <p>
-                Model metadata was documented in <strong>property.yml</strong> to describe the staging models and define the meaning
-                of important columns. This helps make the project easier to understand, improves collaboration, and keeps the
-                transformation logic well documented for future use. 
-            </p>
-
-            <ul>
-                <li>Documented fact and dimension models</li>
-                <li>Added descriptions for keys and business fields</li>
-                <li>Improved model readability and maintainability</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Snapshots for Change Tracking</h2>
-            <p>
-                A snapshot was configured on the <strong>FACT_SALES</strong> table using a timestamp strategy. This allows the
-                pipeline to preserve historical changes and track updates over time instead of only keeping the latest version
-                of the data. This is especially useful for analytical consistency and auditability. 
-            </p>
-
-<pre><code>snapshots:
-  - name: fact_sales_snapshot
-    relation: source('superstore', 'FACT_SALES')
-    config:
-      unique_key: SALES_KEY
-      strategy: timestamp
-      updated_at: updated_at</code></pre>
-        </div>
-
-        <div class="card">
-            <h2>Staging Layer</h2>
-            <p>
-                The staging layer was used to standardize the raw source data and prepare it for downstream transformations.
-                At this stage, source tables were cleaned, renamed, and organized into consistent structures before being
-                reused in later models. The staging diagram and staged elements can be added here to visually explain the flow
-                of the pipeline from raw data to refined models. 
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Project Outcome</h2>
-            <p>
-                This project demonstrates my ability to build a structured data pipeline using SQL-centered tools and analytics
-                engineering practices. It highlights skills in data modeling, validation, documentation, transformation design,
-                and warehouse organization. The final result is a more reliable and analysis-ready data foundation that supports
-                reporting and business insight generation.
-            </p>
-
-            <a href="https://github.com/yourusername/your-repo" target="_blank" class="btn">View Project</a>
-        </div>
-
-        <div class="back-link">
-            <a href="../index.html">← Back to Portfolio</a>
-        </div>
+    <div class="placeholder">
+        📌 Add Snowflake Script Screenshot Here
     </div>
+</div>
+
+<!-- Pipeline -->
+<div class="card">
+    <h2>Pipeline Overview</h2>
+    <p>
+        Data imported from Kaggle → loaded into Snowflake → transformed with dbt →
+        validated and structured into analytics-ready models.
+    </p>
+
+    <div class="tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">dbt</span>
+    </div>
+</div>
+
+<!-- Staging Placeholder -->
+<div class="card">
+    <h2>Staging Layer</h2>
+    <p>
+        Raw data is cleaned, standardized, and prepared for transformation.
+    </p>
+
+    <div class="placeholder">
+        📌 Add Staging Diagram Here
+    </div>
+</div>
+
+<!-- Intermediate -->
+<div class="card">
+    <h2>Intermediate Layer</h2>
+    <ul>
+        <li>int_product</li>
+        <li>int_customer</li>
+        <li>int_geography</li>
+        <li>int_order</li>
+        <li>int_sales_enriched</li>
+        <li>int_order_sales</li>
+        <li>int_daily_sales</li>
+        <li>int_customer_sales_summary</li>
+    </ul>
+</div>
+
+<!-- Mart -->
+<div class="card">
+    <h2>Mart Layer</h2>
+
+    <h3>Finance</h3>
+    <ul>
+        <li>fct_finance_sales</li>
+        <li>fct_finance_orders</li>
+        <li>mart_finance_profitability_by_month</li>
+    </ul>
+
+    <h3>Marketing</h3>
+    <ul>
+        <li>dim_marketing_customer</li>
+        <li>mart_marketing_customer_segments</li>
+        <li>mart_marketing_product_demand</li>
+    </ul>
+</div>
+
+<!-- Outcome -->
+<div class="card">
+    <h2>Project Outcome</h2>
+    <p>
+        Built a scalable SQL pipeline with strong data quality, modular transformations,
+        and clear data modeling for analytics.
+    </p>
+
+    <a href="#" class="btn">View Project</a>
+</div>
+
+</div>
 
 </body>
 </html>
