@@ -3,50 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SQL Projects | Nouha MAACH</title>
+<title>dbt Analytics Pipeline | Nouha MAACH</title>
 
 <style>
 :root {
-    --bg-gradient: linear-gradient(135deg, #e6ecff, #f7f9ff);
+    --bg-gradient: linear-gradient(135deg, #eef2ff, #f8faff);
     --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
     --accent: #a5b4fc;
-    --accent-dark: #6c7ae0;
-    --text-dark: #2d2d2d;
+    --accent-dark: #6366f1;
+    --text-dark: #1f2937;
     --text-light: #6b7280;
-    --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    --shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: var(--bg-gradient);
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
+    background: var(--bg-gradient);
     color: var(--text-dark);
 }
 
 header {
     text-align: center;
-    padding: 70px 20px 30px;
+    padding: 80px 20px 30px;
 }
 
 h1 {
     font-size: 2.8rem;
-    margin: 0;
+    margin-bottom: 10px;
 }
 
 .subtitle {
-    color: var(--text-light);
     font-size: 1.2rem;
+    color: var(--text-light);
 }
 
 .intro {
-    max-width: 850px;
+    max-width: 800px;
     margin: 20px auto;
     color: var(--text-light);
     line-height: 1.7;
 }
 
 .container {
-    max-width: 1050px;
+    max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -54,9 +54,9 @@ h1 {
 .card {
     background: var(--card-gradient);
     border-radius: 18px;
-    box-shadow: var(--shadow);
     padding: 30px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
 }
 
 .card h2 {
@@ -76,7 +76,7 @@ h1 {
 
 img {
     width: 100%;
-    border-radius: 14px;
+    border-radius: 12px;
     margin-top: 15px;
     box-shadow: var(--shadow);
 }
@@ -85,10 +85,10 @@ img {
     border: 2px dashed var(--accent);
     padding: 60px;
     text-align: center;
-    color: var(--text-light);
-    border-radius: 14px;
+    border-radius: 12px;
     margin-top: 15px;
     background: #f8faff;
+    color: var(--text-light);
 }
 
 .tags {
@@ -106,177 +106,186 @@ img {
     font-weight: 600;
 }
 
-pre {
-    background: #f4f6ff;
-    padding: 15px;
-    border-radius: 10px;
-    overflow-x: auto;
-    color: var(--text-dark);
-}
-
-.btn {
-    background: var(--accent-dark);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.btn:hover {
-    background: var(--accent);
-    color: var(--text-dark);
-}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>SQL Projects</h1>
-    <p class="subtitle">Data Pipeline Project</p>
+    <h1>dbt Analytics Pipeline</h1>
+    <p class="subtitle">End-to-End Data Transformation on Superstore Dataset</p>
+
     <p class="intro">
-        End-to-end analytics pipeline built with SQL, Snowflake, and dbt,
-        covering ingestion, transformation, testing, and data modeling.
+        This project builds a modern data pipeline using Snowflake and dbt to transform the Superstore dataset
+        into a clean, scalable analytics layer. It covers data ingestion, transformation, testing, and modeling,
+        delivering business insights across finance, customers, products, and operations.
     </p>
 </header>
 
 <div class="container">
 
-    <!-- ERD -->
-    <div class="card">
-        <h2>Data Model & Architecture</h2>
-        <p>
-            Star schema centered on <strong>FACT_SALES</strong> and connected to
-            multiple dimension tables for customer, product, order, and geography analysis.
-        </p>
-        <img src="0. erd.png" alt="ERD Diagram">
+<!-- PROJECT GOAL -->
+<div class="card">
+    <h2>Project Goal</h2>
+    <p>
+        The goal of this project is to transform the Superstore dataset from Kaggle into a structured
+        analytics warehouse using dbt.
+    </p>
+
+    <ul>
+        <li>Ensure data quality with testing and validation</li>
+        <li>Build reusable transformation layers</li>
+        <li>Deliver business-ready analytics models</li>
+    </ul>
+
+    <div class="placeholder">
+        📌 Add Dataset Schema Screenshot
     </div>
+</div>
 
-    <!-- Pipeline Overview -->
-    <div class="card">
-        <h2>Pipeline Overview</h2>
-        <p>
-            Data imported from Kaggle was first loaded into Snowflake, then transformed with dbt
-            through staging, intermediate, and mart layers. The pipeline was designed to ensure
-            data quality, consistency, and clear business-oriented reporting.
-        </p>
+<!-- ERD -->
+<div class="card">
+    <h2>Data Model & Architecture</h2>
+    <p>
+        The data model follows a star schema centered around a sales fact table,
+        connected to customer, product, order, and geography dimensions.
+    </p>
 
-        <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Snowflake</span>
-            <span class="tag">dbt</span>
-        </div>
+    <img src="0. erd.png" alt="ERD Diagram">
+</div>
+
+<!-- PIPELINE -->
+<div class="card">
+    <h2>Pipeline Overview</h2>
+    <p>
+        The pipeline follows a modern analytics architecture:
+    </p>
+
+    <ul>
+        <li>Data ingestion into Snowflake</li>
+        <li>Transformation with dbt (staging → intermediate → marts)</li>
+        <li>Data quality checks and testing</li>
+        <li>Business-ready analytics outputs</li>
+    </ul>
+
+    <div class="tags">
+        <span class="tag">Snowflake</span>
+        <span class="tag">dbt</span>
+        <span class="tag">SQL</span>
     </div>
+</div>
 
-    <!-- Data Ingestion in Snowflake -->
-    <div class="card">
-        <h2>1. Data Ingestion in Snowflake</h2>
-        <p>
-            The first step of the pipeline consisted of loading the raw dataset into Snowflake.
-            This ingestion layer created the foundation for the rest of the transformation workflow,
-            enabling structured storage, scalable querying, and integration with dbt models.
-        </p>
+<!-- INGESTION -->
+<div class="card">
+    <h2>Data Ingestion (Snowflake)</h2>
+    <p>
+        The raw dataset was loaded into Snowflake to serve as the foundation for transformation.
+        This layer enables scalable querying and integration with dbt.
+    </p>
 
-        <div class="placeholder">
-            📌 Add Snowflake Data Ingestion Screenshot Here
-        </div>
+    <div class="placeholder">
+        📌 Add Snowflake Screenshot
     </div>
+</div>
 
-    <!-- dbt project.yml -->
-    <div class="card">
-        <h2>2. dbt Project Configuration</h2>
-        <p>
-            The <strong>dbt_project.yml</strong> file defines the structure of the project and controls
-            how models are organized across staging, intermediate, and mart layers. It also helps standardize
-            schemas, materializations, and the general project setup.
-        </p>
+<!-- DBT SETUP -->
+<div class="card">
+    <h2>dbt Setup</h2>
+    <p>
+        dbt was used to structure transformations into modular layers and enforce data quality.
+    </p>
 
-        <div class="placeholder">
-             <img src="Screenshot 2026-04-14 172847.png" alt="dbt_project.yml">
-        </div>
+    <h3>Source & Tests</h3>
+    <ul>
+        <li>Not Null tests</li>
+        <li>Unique tests</li>
+        <li>Source freshness validation</li>
+    </ul>
+
+    <div class="placeholder">
+        📌 Add source.yml Screenshot
     </div>
+</div>
 
-    <!-- Source Metadata -->
-    <div class="card">
-        <h2>3. Source Metadata</h2>
-        <p>
-            Source metadata was defined to document raw tables and apply data quality checks such as
-            <strong>unique</strong> and <strong>not_null</strong> tests. This layer makes the project more
-            reliable and easier to maintain by validating key business entities directly from the source.
-        </p>
+<!-- LAYERS -->
+<div class="card">
+    <h2>Transformation Layers</h2>
 
-        <div class="placeholder">
-             <img src="Screenshot 2026-04-15 094744.png" alt="Source.yml">
-        </div>
+    <h3>Staging</h3>
+    <p>Data is cleaned and standardized.</p>
+
+    <h3>Intermediate</h3>
+    <p>Data is enriched and combined into reusable models.</p>
+
+    <ul>
+        <li>int_customer</li>
+        <li>int_product</li>
+        <li>int_geography</li>
+        <li>int_order</li>
+        <li>int_sales_enriched</li>
+    </ul>
+
+    <h3>Marts</h3>
+    <p>Final business-ready models.</p>
+</div>
+
+<!-- SNAPSHOT -->
+<div class="card">
+    <h2>Snapshots</h2>
+    <p>
+        Snapshots were implemented using the timestamp strategy to track historical changes.
+    </p>
+
+    <div class="placeholder">
+        📌 Add Snapshot Screenshot
     </div>
+</div>
 
-    <!-- Staging -->
-    <div class="card">
-        <h2>Staging Layer</h2>
-        <p>
-            Raw data is cleaned, standardized, and prepared for transformation.
-        </p>
+<!-- DAG -->
+<div class="card">
+    <h2>dbt DAG</h2>
+    <p>
+        The DAG represents model dependencies across all transformation layers.
+    </p>
 
-        <div class="placeholder">
-            <img src="Screenshot 2026-04-14 110940.png" alt="Staging diagram">
-        </div>
+    <div class="placeholder">
+        📌 Add DAG Screenshot
     </div>
+</div>
 
-    <!-- Intermediate -->
-    <div class="card">
-        <h2>Intermediate Layer</h2>
-        <p>
-            The intermediate layer combines and enriches staged data into reusable transformation models
-            that support downstream finance and marketing marts.
-        </p>
-        <ul>
-            <li>int_product</li>
-            <li>int_customer</li>
-            <li>int_geography</li>
-            <li>int_order</li>
-            <li>int_sales_enriched</li>
-            <li>int_order_sales</li>
-            <li>int_daily_sales</li>
-            <li>int_customer_sales_summary</li>
-        </ul>
-    </div>
+<!-- MARTS -->
+<div class="card">
+    <h2>Business Marts</h2>
 
-    <!-- Mart -->
-    <div class="card">
-        <h2>Mart Layer</h2>
-        <p>
-            The mart layer organizes the final business-ready models into finance and marketing domains,
-            making them easier to use for reporting, KPI analysis, and decision-making.
-        </p>
+    <h3>💰 Financial Performance</h3>
+    <p>
+        Tracks revenue, profit, margin, and discount impact to evaluate business profitability.
+    </p>
 
-        <h3>Finance</h3>
-        <ul>
-            <li>fct_finance_sales</li>
-            <li>fct_finance_orders</li>
-            <li>mart_finance_profitability_by_month</li>
-        </ul>
+    <h3>👥 Customer Behavior</h3>
+    <p>
+        Measures customer lifetime value, retention, and segmentation.
+    </p>
 
-        <h3>Marketing</h3>
-        <ul>
-            <li>dim_marketing_customer</li>
-            <li>mart_marketing_customer_segments</li>
-            <li>mart_marketing_product_demand</li>
-        </ul>
-    </div>
+    <h3>📦 Product Performance</h3>
+    <p>
+        Analyzes product profitability, volume, and pricing strategy.
+    </p>
 
-    <!-- Outcome -->
-    <div class="card">
-        <h2>Project Outcome</h2>
-        <p>
-            Built a scalable SQL pipeline with strong data quality, modular transformations,
-            and clear data modeling for analytics. This project demonstrates practical skills
-            in data warehousing, transformation design, and analytics engineering.
-        </p>
+    <h3>🚚 Operations & Logistics</h3>
+    <p>
+        Evaluates delivery performance, delays, and operational efficiency.
+    </p>
+</div>
 
-        <a href="#" class="btn">View Project</a>
-    </div>
+<!-- OUTCOME -->
+<div class="card">
+    <h2>Project Outcome</h2>
+    <p>
+        This project demonstrates the ability to design and implement a scalable data pipeline using dbt,
+        ensuring data quality, modular transformation, and business-focused analytics.
+    </p>
+</div>
 
 </div>
 
