@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dbt Analytics Pipeline | Nouha MAACH</title>
+
+<style>
+:root {
+    --bg-gradient: linear-gradient(135deg, #eef2ff, #f8faff);
+    --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
+    --accent: #a5b4fc;
+    --accent-dark: #6366f1;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px 30px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.intro {
+    max-width: 800px;
+    margin: 20px auto;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--card-gradient);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card h3 {
+    color: var(--accent-dark);
+    margin-top: 20px;
+}
+
+.card p,
+.card li {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: var(--shadow);
+}
+
+.placeholder {
+    border: 2px dashed var(--accent);
+    padding: 60px;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 15px;
+    background: #f8faff;
+    color: var(--text-light);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tag {
+    background: #eef2ff;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--accent-dark);
+    font-weight: 600;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>dbt Analytics Pipeline</h1>
+    <p class="subtitle">End-to-End Data Transformation on Superstore Dataset</p>
+
+    <p class="intro">
+        This project builds a modern data pipeline using Snowflake and dbt to transform the Superstore dataset
+        into a clean, scalable analytics layer. It covers data ingestion, transformation, testing, and modeling,
+        delivering business insights across finance, customers, products, and operations.
+    </p>
+</header>
+
+<div class="container">
+
+<!-- PROJECT GOAL -->
+<div class="card">
+    <h2>Project Goal</h2>
+    <p>
+        The goal of this project is to transform the Superstore dataset from Kaggle into a structured
+        analytics warehouse using dbt.
+    </p>
+
+    <ul>
+        <li>Ensure data quality with testing and validation</li>
+        <li>Build reusable transformation layers</li>
+        <li>Deliver business-ready analytics models</li>
+    </ul>
+
+
+</div>
+
+<!-- ERD -->
+<div class="card">
+    <h2>Data Model & Architecture</h2>
+    <p>
+        The data model follows a star schema centered around a sales fact table,
+        connected to customer, product, order, and geography dimensions.
+    </p>
+
+    <img src="0. erd.png" alt="ERD Diagram">
+</div>
+
+<!-- PIPELINE -->
+<div class="card">
+    <h2>Pipeline Overview</h2>
+    <p>
+        The pipeline follows a modern analytics architecture:
+    </p>
+
+    <ul>
+        <li>Data ingestion into Snowflake</li>
+        <li>Transformation with dbt (staging → intermediate → marts)</li>
+        <li>Data quality checks and testing</li>
+        <li>Business-ready analytics outputs</li>
+    </ul>
+
+    <div class="tags">
+        <span class="tag">Snowflake</span>
+        <span class="tag">dbt</span>
+        <span class="tag">SQL</span>
+    </div>
+</div>
+
+<!-- INGESTION -->
+<div class="card">
+    <h2>Data Ingestion (Snowflake)</h2>
+    <p>
+        The raw dataset was loaded into Snowflake to serve as the foundation for transformation.
+        This layer enables scalable querying and integration with dbt.
+    </p>
+
+    <div class="placeholder">
+        <img src="snowflake.png" alt="ERD Diagram">
+    </div>
+</div>
+
+<!-- DBT SETUP -->
+<div class="card">
+    <h2>dbt Setup</h2>
+    <p>
+        dbt was used to structure transformations into modular layers and enforce data quality.
+    </p>
+
+    <h3>Source & Tests</h3>
+    <ul>
+        <li>Not Null tests</li>
+        <li>Unique tests</li>
+        <li>Source freshness validation</li>
+    </ul>
+
+
+</div>
+
+<!-- LAYERS -->
+<div class="card">
+    <h2>Transformation Layers</h2>
+
+    <h3>Staging</h3>
+    <p>Data is cleaned and standardized.</p>
+
+    <h3>Intermediate</h3>
+    <p>Data is enriched and combined into reusable models.</p>
+
+
+    <h3>Marts</h3>
+    <p>Final business-ready models.</p>
+</div>
+
+<!-- SNAPSHOT -->
+<div class="card">
+    <h2>Snapshots</h2>
+    <p>
+        Snapshots were implemented using the timestamp strategy to track historical changes.
+    </p>
+
+
+</div>
+
+<!-- DAG -->
+<div class="card">
+    <h2>dbt DAG</h2>
+    <p>
+        The DAG represents model dependencies across all transformation layers.
+    </p>
+
+    <div class="placeholder">
+        <img src="DAg.png" alt="Diagram">
+    </div>
+</div>
+
+<!-- MARTS -->
+<div class="card">
+    <h2>Business Marts</h2>
+
+    <h3>💰 Financial Performance</h3>
+    <p>
+        Tracks revenue, profit, margin, and discount impact to evaluate business profitability.
+    </p>
+
+    <h3>👥 Customer Behavior</h3>
+    <p>
+        Measures customer lifetime value, retention, and segmentation.
+    </p>
+
+    <h3>📦 Product Performance</h3>
+    <p>
+        Analyzes product profitability, volume, and pricing strategy.
+    </p>
+
+    <h3>🚚 Operations & Logistics</h3>
+    <p>
+        Evaluates delivery performance, delays, and operational efficiency.
+    </p>
+</div>
+
+<!-- OUTCOME -->
+<div class="card">
+    <h2>Project Outcome</h2>
+    <p>
+        This project demonstrates the ability to design and implement a scalable data pipeline using dbt,
+        ensuring data quality, modular transformation, and business-focused analytics.
+    </p>
+</div>
+
+</div>
+
+</body>
+</html>
 
