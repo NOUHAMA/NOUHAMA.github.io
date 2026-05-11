@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snowflake Ingestion | Nouha MAACH</title>
 
+<style>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #eef2ff, #f8faff);
+    color: #1f2937;
+}
+
+.container {
+    max-width: 950px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p, li {
+    color: #6b7280;
+    line-height: 1.7;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 11px 16px;
+    background: #6366f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-link">← Back to dbt Project</a>
+
+    <div class="card">
+        <h1>❄️ Snowflake Ingestion</h1>
+
+        <p>
+            This stage focuses on loading the raw Superstore dataset into Snowflake
+            as the foundation of the analytics pipeline.
+        </p>
+
+        <h2>What I Did</h2>
+        <ul>
+            <li>Created a Snowflake database and schema for raw data</li>
+            <li>Loaded the Superstore CSV dataset into Snowflake</li>
+            <li>Prepared raw source tables for dbt transformations</li>
+            <li>Separated raw data from transformed analytics layers</li>
+        </ul>
+
+        <h2>Goal</h2>
+        <p>
+            The goal was to centralize the raw dataset in a scalable cloud warehouse
+            before applying transformations with dbt.
+        </p>
+
+        <h2>Tools Used</h2>
+        <ul>
+            <li>Snowflake</li>
+            <li>SQL</li>
+            <li>Superstore Dataset</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
