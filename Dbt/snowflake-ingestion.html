@@ -31,6 +31,11 @@ h1 {
     margin-bottom: 10px;
 }
 
+h2 {
+    margin-top: 35px;
+    color: #6366f1;
+}
+
 p, li {
     color: #6b7280;
     line-height: 1.7;
@@ -46,6 +51,27 @@ p, li {
     border-radius: 8px;
     font-weight: 600;
 }
+
+.dataset-placeholder {
+    margin-top: 20px;
+    border: 2px dashed #a5b4fc;
+    border-radius: 16px;
+    padding: 60px 20px;
+    text-align: center;
+    background: #f8faff;
+    color: #6b7280;
+}
+
+.dataset-placeholder img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
 </style>
 </head>
 
@@ -55,6 +81,7 @@ p, li {
     <a href="index.html" class="back-link">← Back to dbt Project</a>
 
     <div class="card">
+
         <h1>❄️ Snowflake Ingestion</h1>
 
         <p>
@@ -62,7 +89,33 @@ p, li {
             as the foundation of the analytics pipeline.
         </p>
 
+        <h2>Dataset Overview</h2>
+
+        <p>
+            The Superstore dataset contains transactional sales data including
+            orders, customers, products, shipping information, and profitability metrics.
+        </p>
+
+        <div class="dataset-placeholder">
+
+            <div class="placeholder-icon">🗂️</div>
+
+            <h3>Dataset Preview Placeholder</h3>
+
+            <p>
+                Replace this section with a screenshot of the Superstore dataset
+                or a Snowflake table preview.
+            </p>
+
+            <!-- Replace dataset-preview.png with your image -->
+            <!--
+            <img src="dataset-preview.png" alt="Dataset Preview">
+            -->
+
+        </div>
+
         <h2>What I Did</h2>
+
         <ul>
             <li>Created a Snowflake database and schema for raw data</li>
             <li>Loaded the Superstore CSV dataset into Snowflake</li>
@@ -71,17 +124,20 @@ p, li {
         </ul>
 
         <h2>Goal</h2>
+
         <p>
             The goal was to centralize the raw dataset in a scalable cloud warehouse
             before applying transformations with dbt.
         </p>
 
         <h2>Tools Used</h2>
+
         <ul>
             <li>Snowflake</li>
             <li>SQL</li>
             <li>Superstore Dataset</li>
         </ul>
+
     </div>
 </div>
 
