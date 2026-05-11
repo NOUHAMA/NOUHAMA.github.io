@@ -11,6 +11,7 @@
     --bg-gradient: linear-gradient(135deg, #eef2ff, #f8faff);
     --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
     --accent-dark: #6366f1;
+    --accent-light: #e0e7ff;
     --text-dark: #1f2937;
     --text-light: #6b7280;
     --shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -27,25 +28,40 @@ body {
     min-height: 100vh;
     background: var(--bg-gradient);
     color: var(--text-dark);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 70px 20px 80px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    max-width: 850px;
+    margin: auto;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.08rem;
 }
 
 .back-link {
     display: inline-block;
-    margin-bottom: 40px;
-    padding: 11px 16px;
+    margin-bottom: 45px;
+    padding: 11px 18px;
     background: var(--accent-dark);
-    color: #fff;
+    color: white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     transition: 0.25s ease;
 }
@@ -55,26 +71,60 @@ body {
     transform: scale(1.03);
 }
 
+.process-wrapper {
+    position: relative;
+}
+
+.process-line {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    width: 84%;
+    height: 6px;
+    background: linear-gradient(to right, #c7d2fe, #818cf8);
+    z-index: 0;
+    border-radius: 999px;
+}
+
 .stage-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 34px;
+    position: relative;
+    z-index: 1;
 }
 
 .stage-card {
     background: var(--card-gradient);
-    border-radius: 22px;
-    padding: 38px 28px;
+    border-radius: 24px;
+    padding: 42px 28px;
     text-align: center;
     box-shadow: var(--shadow);
     text-decoration: none;
     color: var(--text-dark);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .stage-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
     box-shadow: var(--shadow-hover);
+}
+
+.stage-number {
+    width: 46px;
+    height: 46px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.3);
 }
 
 .stage-icon {
@@ -83,7 +133,7 @@ body {
 }
 
 .stage-card h2 {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     margin-bottom: 14px;
 }
 
@@ -93,13 +143,22 @@ body {
     font-size: 0.98rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
+
+    .process-line {
+        display: none;
+    }
+
     .stage-grid {
         grid-template-columns: 1fr;
     }
 
+    h1 {
+        font-size: 2.4rem;
+    }
+
     .container {
-        padding: 30px 20px 60px;
+        padding-top: 50px;
     }
 }
 </style>
@@ -111,40 +170,66 @@ body {
 
     <a href="../index.html" class="back-link">← Back to Portfolio</a>
 
-    <div class="stage-grid">
+    <header>
+        <h1>dbt Analytics Pipeline</h1>
 
-        <a href="snowflake-ingestion.html" class="stage-card">
-            <div class="stage-icon">❄️</div>
+        <p class="subtitle">
+            This project demonstrates a complete modern analytics engineering workflow.
+            The pipeline begins with raw data ingestion into Snowflake, continues with
+            SQL transformations and modeling in dbt, and finishes with interactive
+            business dashboards and insights in Power BI.
+        </p>
+    </header>
 
-            <h2>Snowflake Ingestion</h2>
+    <div class="process-wrapper">
 
-            <p>
-                Raw Superstore data ingestion and cloud warehouse setup
-                using Snowflake.
-            </p>
-        </a>
+        <div class="process-line"></div>
 
-        <a href="dbt-sql.html" class="stage-card">
-            <div class="stage-icon">⚙️</div>
+        <div class="stage-grid">
 
-            <h2>dbt SQL Transformation</h2>
+            <a href="snowflake-ingestion.html" class="stage-card">
 
-            <p>
-                Modular SQL transformations, testing,
-                staging models, marts, and dbt workflows.
-            </p>
-        </a>
+                <div class="stage-number">1</div>
 
-        <a href="visualization.html" class="stage-card">
-            <div class="stage-icon">📊</div>
+                <div class="stage-icon">❄️</div>
 
-            <h2>Visualization</h2>
+                <h2>Snowflake Ingestion</h2>
 
-            <p>
-                Power BI dashboards and business insights
-                generated from transformed analytics models.
-            </p>
-        </a>
+                <p>
+                    Raw Superstore data ingestion, warehouse setup,
+                    and cloud data storage using Snowflake.
+                </p>
+            </a>
+
+            <a href="dbt-sql.html" class="stage-card">
+
+                <div class="stage-number">2</div>
+
+                <div class="stage-icon">⚙️</div>
+
+                <h2>dbt SQL Transformation</h2>
+
+                <p>
+                    Modular SQL transformations, testing,
+                    staging models, marts, and dbt workflows.
+                </p>
+            </a>
+
+            <a href="visualization.html" class="stage-card">
+
+                <div class="stage-number">3</div>
+
+                <div class="stage-icon">📊</div>
+
+                <h2>Visualization</h2>
+
+                <p>
+                    Power BI dashboards and business insights
+                    generated from transformed analytics models.
+                </p>
+            </a>
+
+        </div>
 
     </div>
 
