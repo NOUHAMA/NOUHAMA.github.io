@@ -10,7 +10,6 @@
 :root {
     --bg-gradient: linear-gradient(135deg, #eef2ff, #f8faff);
     --card-gradient: linear-gradient(135deg, #ffffff, #f9faff);
-    --accent: #a5b4fc;
     --accent-dark: #6366f1;
     --text-dark: #1f2937;
     --text-light: #6b7280;
@@ -25,66 +24,47 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
+    min-height: 100vh;
     background: var(--bg-gradient);
     color: var(--text-dark);
-}
-
-header {
-    text-align: center;
-    padding: 80px 20px 35px;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--text-light);
-}
-
-.intro {
-    max-width: 800px;
-    margin: 20px auto;
-    color: var(--text-light);
-    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container {
     max-width: 1100px;
-    margin: 30px auto 70px;
-    padding: 0 20px;
+    margin: auto;
+    padding: 40px 20px;
 }
 
 .back-link {
     display: inline-block;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     padding: 11px 16px;
     background: var(--accent-dark);
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
-    transition: background 0.25s ease, transform 0.25s ease;
+    transition: 0.25s ease;
 }
 
 .back-link:hover {
-    background: #444;
+    background: #4f46e5;
     transform: scale(1.03);
 }
 
 .stage-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
-    margin-bottom: 40px;
+    gap: 28px;
 }
 
 .stage-card {
     background: var(--card-gradient);
-    border-radius: 20px;
-    padding: 30px 24px;
+    border-radius: 22px;
+    padding: 38px 28px;
     text-align: center;
     box-shadow: var(--shadow);
     text-decoration: none;
@@ -93,107 +73,39 @@ h1 {
 }
 
 .stage-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
 }
 
 .stage-icon {
-    font-size: 2.4rem;
-    margin-bottom: 12px;
+    font-size: 3rem;
+    margin-bottom: 18px;
 }
 
 .stage-card h2 {
-    font-size: 1.35rem;
-    margin: 10px 0;
+    font-size: 1.45rem;
+    margin-bottom: 14px;
 }
 
 .stage-card p {
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.7;
     font-size: 0.98rem;
 }
 
-.card {
-    background: var(--card-gradient);
-    border-radius: 18px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: var(--shadow);
-}
-
-.card h2 {
-    margin-top: 0;
-}
-
-.card p,
-.card li {
-    color: var(--text-light);
-    line-height: 1.7;
-}
-
-img {
-    width: 100%;
-    border-radius: 12px;
-    margin-top: 15px;
-    box-shadow: var(--shadow);
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 18px;
-}
-
-.tag {
-    background: #eef2ff;
-    padding: 8px 14px;
-    border-radius: 999px;
-    color: var(--accent-dark);
-    font-weight: 600;
-}
-
-.github-link {
-    display: inline-block;
-    margin-top: 14px;
-    padding: 11px 16px;
-    background-color: #24292e;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.github-link:hover {
-    background-color: #444;
-    transform: scale(1.03);
-}
-
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .stage-grid {
         grid-template-columns: 1fr;
     }
 
-    h1 {
-        font-size: 2.3rem;
+    .container {
+        padding: 30px 20px 60px;
     }
 }
 </style>
 </head>
 
 <body>
-
-<header>
-    <h1>dbt Analytics Pipeline</h1>
-    <p class="subtitle">End-to-End Data Transformation on Superstore Dataset</p>
-
-    <p class="intro">
-        This project builds a modern analytics pipeline using Snowflake, dbt, SQL,
-        and visualization. The workflow is organized into three main stages:
-        ingestion, transformation, and business reporting.
-    </p>
-</header>
 
 <div class="container">
 
@@ -203,83 +115,37 @@ img {
 
         <a href="snowflake-ingestion.html" class="stage-card">
             <div class="stage-icon">❄️</div>
+
             <h2>Snowflake Ingestion</h2>
+
             <p>
-                Raw Superstore data is loaded into Snowflake and prepared
-                as the foundation for the analytics pipeline.
+                Raw Superstore data ingestion and cloud warehouse setup
+                using Snowflake.
             </p>
         </a>
 
         <a href="dbt-sql.html" class="stage-card">
             <div class="stage-icon">⚙️</div>
+
             <h2>dbt SQL Transformation</h2>
+
             <p>
-                SQL models are organized into staging, intermediate,
-                and marts layers using dbt best practices.
+                Modular SQL transformations, testing,
+                staging models, marts, and dbt workflows.
             </p>
         </a>
 
         <a href="visualization.html" class="stage-card">
             <div class="stage-icon">📊</div>
+
             <h2>Visualization</h2>
+
             <p>
-                Clean business-ready models are used to generate insights
-                across finance, customers, products, and operations.
+                Power BI dashboards and business insights
+                generated from transformed analytics models.
             </p>
         </a>
 
-    </div>
-
-    <div class="card">
-        <h2>Project Goal</h2>
-        <p>
-            The goal of this project is to transform the Superstore dataset from Kaggle
-            into a structured analytics warehouse using Snowflake and dbt.
-        </p>
-
-        <ul>
-            <li>Ensure data quality with testing and validation</li>
-            <li>Build reusable transformation layers</li>
-            <li>Deliver business-ready analytics models</li>
-            <li>Create clear outputs for dashboarding and decision-making</li>
-        </ul>
-
-        <div class="tags">
-            <span class="tag">Snowflake</span>
-            <span class="tag">dbt</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Analytics Engineering</span>
-            <span class="tag">Visualization</span>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>Data Model & Architecture</h2>
-        <p>
-            The data model follows a star schema centered around a sales fact table,
-            connected to customer, product, order, and geography dimensions.
-        </p>
-
-        <img src="0. erd.png" alt="ERD Diagram">
-    </div>
-
-    <div class="card">
-        <h2>Project Outcome</h2>
-
-        <p>
-            This project showcases the design and implementation of a scalable
-            analytics pipeline using Snowflake and dbt. It highlights best practices
-            in data modeling, modular SQL transformations, testing, documentation,
-            and business-ready reporting.
-        </p>
-
-        <p>
-            The pipeline is fully version-controlled and documented in a separate repository.
-        </p>
-
-        <a href="https://github.com/NOUHAMA/pipeline_project_superstore" target="_blank" class="github-link">
-            🔗 View Full Pipeline on GitHub
-        </a>
     </div>
 
 </div>
