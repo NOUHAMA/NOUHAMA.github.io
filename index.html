@@ -113,6 +113,33 @@
             transform: scale(1.03);
         }
 
+
+
+
+
+.dbt-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 22px 0 24px;
+}
+
+.dbt-stages span {
+    background: linear-gradient(135deg, #eef2ff, #f8f9ff);
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid #dbe2ff;
+    box-shadow: 0 4px 10px rgba(108, 122, 224, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dbt-stages span:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 14px rgba(108, 122, 224, 0.14);
+}
         footer {
             padding: 20px;
             color: var(--text-light);
@@ -154,11 +181,18 @@
             <a href="Python/index.html" target="_blank">View Projects</a>
         </div>
 
-        <div class="project-card">
-            <h2>Dbt</h2>
-            <p>Explore my dbt projects built with SQL, featuring end-to-end data pipelines, transformations, and analytics.</p>
-            <a href="Dbt/index.html" target="_blank">View Projects</a>
-        </div>
+ <div class="project-card dbt-card">
+    <h2>Dbt</h2>
+    <p>End-to-end analytics workflow from raw data ingestion to business-ready dashboards.</p>
+
+    <div class="dbt-stages">
+        <span>Snowflake Ingestion</span>
+        <span>dbt SQL</span>
+        <span>Visualization</span>
+    </div>
+
+    <a href="Dbt/index.html" target="_blank">View Projects</a>
+</div>
 
         <div class="project-card">
             <h2>Contact</h2>
