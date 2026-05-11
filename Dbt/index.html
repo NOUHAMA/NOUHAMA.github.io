@@ -22,10 +22,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -59,6 +55,23 @@ h1 {
     max-width: 1100px;
     margin: 30px auto 70px;
     padding: 0 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 11px 16px;
+    background: var(--accent-dark);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.back-link:hover {
+    background: #444;
+    transform: scale(1.03);
 }
 
 .stage-grid {
@@ -112,11 +125,6 @@ h1 {
     margin-top: 0;
 }
 
-.card h3 {
-    color: var(--accent-dark);
-    margin-top: 20px;
-}
-
 .card p,
 .card li {
     color: var(--text-light);
@@ -145,8 +153,7 @@ img {
     font-weight: 600;
 }
 
-.github-link,
-.back-link {
+.github-link {
     display: inline-block;
     margin-top: 14px;
     padding: 11px 16px;
@@ -158,15 +165,9 @@ img {
     transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.github-link:hover,
-.back-link:hover {
+.github-link:hover {
     background-color: #444;
     transform: scale(1.03);
-}
-
-.back-link {
-    background: var(--accent-dark);
-    margin-bottom: 25px;
 }
 
 @media (max-width: 850px) {
@@ -200,7 +201,7 @@ img {
 
     <div class="stage-grid">
 
-        <a href="#snowflake-ingestion" class="stage-card">
+        <a href="snowflake-ingestion.html" class="stage-card">
             <div class="stage-icon">❄️</div>
             <h2>Snowflake Ingestion</h2>
             <p>
@@ -209,7 +210,7 @@ img {
             </p>
         </a>
 
-        <a href="#dbt-sql" class="stage-card">
+        <a href="dbt-sql.html" class="stage-card">
             <div class="stage-icon">⚙️</div>
             <h2>dbt SQL Transformation</h2>
             <p>
@@ -218,7 +219,7 @@ img {
             </p>
         </a>
 
-        <a href="#visualization" class="stage-card">
+        <a href="visualization.html" class="stage-card">
             <div class="stage-icon">📊</div>
             <h2>Visualization</h2>
             <p>
@@ -260,115 +261,6 @@ img {
         </p>
 
         <img src="0. erd.png" alt="ERD Diagram">
-    </div>
-
-    <div class="card" id="snowflake-ingestion">
-        <h2>❄️ Snowflake Ingestion</h2>
-        <p>
-            The raw Superstore dataset was loaded into Snowflake to create a scalable
-            cloud data warehouse layer. This ingestion stage acts as the starting point
-            of the full analytics pipeline.
-        </p>
-
-        <h3>What This Stage Includes</h3>
-        <ul>
-            <li>Loading raw CSV data into Snowflake</li>
-            <li>Creating raw database and schema structures</li>
-            <li>Preparing source tables for dbt models</li>
-            <li>Keeping raw data separated from transformed analytics layers</li>
-        </ul>
-
-        <h3>Purpose</h3>
-        <p>
-            This stage ensures that the source data is centralized, queryable,
-            and ready for structured transformation inside dbt.
-        </p>
-    </div>
-
-    <div class="card" id="dbt-sql">
-        <h2>⚙️ dbt SQL Transformation</h2>
-        <p>
-            dbt was used to transform raw Snowflake data into clean, reliable,
-            and reusable analytics models using SQL.
-        </p>
-
-        <h3>dbt Setup</h3>
-        <ul>
-            <li>Source configuration</li>
-            <li>Modular SQL models</li>
-            <li>Model documentation</li>
-            <li>Data quality tests</li>
-            <li>Dependency management through the dbt DAG</li>
-        </ul>
-
-        <h3>Transformation Layers</h3>
-
-        <h3>Staging</h3>
-        <p>
-            Raw data is cleaned, renamed, typed, and standardized.
-        </p>
-
-        <h3>Intermediate</h3>
-        <p>
-            Data is enriched and combined into reusable logic layers.
-        </p>
-
-        <h3>Marts</h3>
-        <p>
-            Final business-ready models are created for reporting and analysis.
-        </p>
-
-        <h3>Tests</h3>
-        <ul>
-            <li>Not null tests</li>
-            <li>Unique tests</li>
-            <li>Source freshness validation</li>
-        </ul>
-
-        <h3>Snapshots</h3>
-        <p>
-            Snapshots were implemented using the timestamp strategy to track
-            historical changes over time.
-        </p>
-
-        <h3>dbt DAG</h3>
-        <p>
-            The DAG represents model dependencies across all transformation layers.
-        </p>
-
-        <img src="DAg.png" alt="dbt DAG Diagram">
-    </div>
-
-    <div class="card" id="visualization">
-        <h2>📊 Visualization & Business Insights</h2>
-        <p>
-            The final transformed marts are designed to support business analysis
-            and dashboard visualization. These outputs help translate cleaned data
-            into actionable insights.
-        </p>
-
-        <h3>Business Marts</h3>
-
-        <h3>💰 Financial Performance</h3>
-        <p>
-            Tracks revenue, profit, margin, and discount impact to evaluate
-            business profitability.
-        </p>
-
-        <h3>👥 Customer Behavior</h3>
-        <p>
-            Measures customer lifetime value, retention, and segmentation.
-        </p>
-
-        <h3>📦 Product Performance</h3>
-        <p>
-            Analyzes product profitability, sales volume, and pricing strategy.
-        </p>
-
-        <h3>🚚 Operations & Logistics</h3>
-        <p>
-            Evaluates delivery performance, delays, and operational efficiency.
-        </p>
     </div>
 
     <div class="card">
