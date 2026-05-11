@@ -8,17 +8,11 @@
 
 <style>
 :root {
-    --bg-gradient: radial-gradient(circle at top left, #dbeafe, transparent 35%),
-                   radial-gradient(circle at top right, #ede9fe, transparent 35%),
-                   linear-gradient(135deg, #eef2ff, #f8faff);
-    --card-gradient: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(249,250,255,0.85));
+    --bg-gradient: linear-gradient(135deg, #eef2ff, #f8faff);
     --accent-dark: #6366f1;
-    --accent-mid: #818cf8;
-    --accent-light: #e0e7ff;
+    --accent-light: #eef2ff;
     --text-dark: #1f2937;
     --text-light: #6b7280;
-    --shadow: 0 18px 45px rgba(99,102,241,0.14);
-    --shadow-hover: 0 24px 60px rgba(99,102,241,0.22);
 }
 
 * {
@@ -26,31 +20,29 @@
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: var(--bg-gradient);
     color: var(--text-dark);
-    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
-    padding: 55px 20px 80px;
+    padding: 60px 20px 80px;
 }
 
 .back-link {
     display: inline-block;
     margin-bottom: 45px;
-    padding: 11px 18px;
+    padding: 12px 18px;
     background: var(--accent-dark);
     color: white;
     text-decoration: none;
     border-radius: 999px;
     font-weight: 600;
     transition: 0.25s ease;
-    box-shadow: 0 10px 25px rgba(99,102,241,0.25);
 }
 
 .back-link:hover {
@@ -65,14 +57,13 @@ header {
 
 .badge {
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: 999px;
     background: white;
     color: var(--accent-dark);
+    padding: 8px 16px;
+    border-radius: 999px;
     font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: var(--shadow);
     margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.12);
 }
 
 h1 {
@@ -82,7 +73,7 @@ h1 {
 }
 
 .highlight {
-    background: linear-gradient(135deg, #6366f1, #9333ea);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -92,84 +83,61 @@ h1 {
     margin: auto;
     color: var(--text-light);
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.08rem;
 }
 
-.process-wrapper {
+.smart-process {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 45px;
+}
+
+.smart-step {
     position: relative;
-    padding: 35px 0;
-}
-
-.process-line {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    width: 80%;
-    height: 10px;
-    background: linear-gradient(to right, #60a5fa, #818cf8, #a78bfa);
-    border-radius: 999px;
-    z-index: 0;
-    box-shadow: 0 12px 30px rgba(99,102,241,0.25);
-}
-
-.stage-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 34px;
-    position: relative;
-    z-index: 2;
-}
-
-.stage-card {
-    position: relative;
-    min-height: 360px;
-    padding: 34px 28px;
-    border-radius: 30px;
-    background: var(--card-gradient);
-    backdrop-filter: blur(12px);
-    box-shadow: var(--shadow);
+    flex: 1;
+    min-height: 340px;
+    padding: 36px 28px;
+    text-align: center;
     text-decoration: none;
     color: var(--text-dark);
-    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f4f6ff);
+    border-radius: 30px;
+    box-shadow: 0 18px 45px rgba(99,102,241,0.14);
+    border: 1px solid rgba(99,102,241,0.10);
     transition: 0.35s ease;
-    border: 1px solid rgba(255,255,255,0.8);
+    overflow: hidden;
 }
 
-.stage-card:hover {
-    transform: translateY(-14px) scale(1.02);
-    box-shadow: var(--shadow-hover);
+.smart-step:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 60px rgba(99,102,241,0.22);
 }
 
-.stage-card::before {
+.smart-step::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 9px;
+    background: linear-gradient(to right, #60a5fa, #818cf8, #a78bfa);
+}
+
+.smart-step::after {
     content: "";
     position: absolute;
     width: 180px;
     height: 180px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%);
+    top: -60px;
+    right: -60px;
     border-radius: 50%;
-    top: -70px;
-    right: -70px;
-    background: radial-gradient(circle, rgba(99,102,241,0.22), transparent 70%);
 }
 
-.stage-card::after {
-    content: "→";
-    position: absolute;
-    right: 22px;
-    bottom: 20px;
-    font-size: 2rem;
-    color: var(--accent-dark);
-    opacity: 0.7;
-    transition: 0.25s ease;
-}
-
-.stage-card:hover::after {
-    transform: translateX(6px);
-    opacity: 1;
-}
-
-.stage-number {
-    width: 48px;
-    height: 48px;
+.step-number {
+    width: 52px;
+    height: 52px;
+    margin: 10px auto 22px;
     border-radius: 50%;
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
@@ -178,65 +146,71 @@ h1 {
     justify-content: center;
     font-weight: 800;
     font-size: 1rem;
-    box-shadow: 0 10px 25px rgba(99,102,241,0.35);
-    margin-bottom: 24px;
+    box-shadow: 0 10px 25px rgba(99,102,241,0.28);
 }
 
-.stage-icon {
-    font-size: 3.4rem;
-    margin-bottom: 18px;
+.step-icon {
+    font-size: 3.6rem;
+    margin-bottom: 16px;
 }
 
-.stage-card h2 {
+.smart-step h2 {
     font-size: 1.45rem;
-    margin: 0 0 14px;
+    margin-bottom: 14px;
 }
 
-.stage-card p {
+.smart-step p {
     color: var(--text-light);
-    line-height: 1.75;
+    line-height: 1.7;
     font-size: 0.98rem;
     margin-bottom: 22px;
 }
 
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 18px;
-}
-
-.tech-tags span {
+.step-tag {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
     background: var(--accent-light);
     color: var(--accent-dark);
-    padding: 7px 11px;
-    border-radius: 999px;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 700;
 }
 
-.flow-label {
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: var(--accent-dark);
+    padding-top: 30px;
+}
+
+.bottom-flow {
     text-align: center;
     margin-top: 45px;
     color: var(--accent-dark);
     font-weight: 700;
-    letter-spacing: 0.4px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
+
+    .smart-process {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+        padding: 0;
+    }
+
     h1 {
         font-size: 2.5rem;
     }
 
-    .process-line {
-        display: none;
-    }
-
-    .stage-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stage-card {
+    .smart-step {
         min-height: auto;
     }
 }
@@ -250,86 +224,92 @@ h1 {
     <a href="../index.html" class="back-link">← Back to Portfolio</a>
 
     <header>
-        <div class="badge">Modern Analytics Engineering Workflow</div>
+
+        <div class="badge">
+            Modern Analytics Engineering Workflow
+        </div>
 
         <h1>
-            From Raw Data to <span class="highlight">Business Insights</span>
+            From Raw Data to
+            <span class="highlight">Business Insights</span>
         </h1>
 
         <p class="subtitle">
-            This dbt project presents a complete data pipeline built around three connected stages:
-            loading raw data into Snowflake, transforming it with dbt and SQL, then delivering
-            insights through Power BI dashboards.
+            This project demonstrates a complete analytics engineering workflow
+            using Snowflake, dbt Cloud, SQL, and Power BI. The pipeline transforms
+            raw business data into clean, structured, and actionable insights.
         </p>
+
     </header>
 
-    <div class="process-wrapper">
+    <div class="smart-process">
 
-        <div class="process-line"></div>
+        <a href="snowflake-ingestion.html" class="smart-step">
 
-        <div class="stage-grid">
+            <div class="step-number">01</div>
 
-            <a href="snowflake-ingestion.html" class="stage-card">
-                <div class="stage-number">01</div>
-                <div class="stage-icon">❄️</div>
+            <div class="step-icon">❄️</div>
 
-                <h2>Snowflake Ingestion</h2>
+            <h2>Snowflake Ingestion</h2>
 
-                <p>
-                    Raw Superstore data is loaded into Snowflake and organized
-                    as the foundation of the analytics pipeline.
-                </p>
+            <p>
+                Raw Superstore data is loaded into Snowflake and organized
+                into scalable cloud warehouse structures.
+            </p>
 
-                <div class="tech-tags">
-                    <span>Snowflake</span>
-                    <span>Raw Data</span>
-                    <span>Cloud Warehouse</span>
-                </div>
-            </a>
+            <div class="step-tag">
+                Raw Data Layer
+            </div>
 
-            <a href="dbt-sql.html" class="stage-card">
-                <div class="stage-number">02</div>
-                <div class="stage-icon">⚙️</div>
+        </a>
 
-                <h2>dbt SQL Transformation</h2>
+        <div class="arrow">➜</div>
 
-                <p>
-                    SQL models clean, test, and transform the raw data into
-                    structured staging, intermediate, and mart layers.
-                </p>
+        <a href="dbt-sql.html" class="smart-step">
 
-                <div class="tech-tags">
-                    <span>dbt Cloud</span>
-                    <span>SQL</span>
-                    <span>Data Modeling</span>
-                </div>
-            </a>
+            <div class="step-number">02</div>
 
-            <a href="visualization.html" class="stage-card">
-                <div class="stage-number">03</div>
-                <div class="stage-icon">📊</div>
+            <div class="step-icon">⚙️</div>
 
-                <h2>Power BI Visualization</h2>
+            <h2>dbt SQL Transformation</h2>
 
-                <p>
-                    Final analytics models are turned into dashboards that reveal
-                    sales, profit, customer, and product performance.
-                </p>
+            <p>
+                SQL models clean, test, and transform data into staging,
+                intermediate, and mart analytics layers.
+            </p>
 
-                <div class="tech-tags">
-                    <span>Power BI</span>
-                    <span>Dashboards</span>
-                    <span>Insights</span>
-                </div>
-            </a>
+            <div class="step-tag">
+                Transformation Layer
+            </div>
 
-        </div>
+        </a>
+
+        <div class="arrow">➜</div>
+
+        <a href="visualization.html" class="smart-step">
+
+            <div class="step-number">03</div>
+
+            <div class="step-icon">📊</div>
+
+            <h2>Power BI Visualization</h2>
+
+            <p>
+                Final analytics models are transformed into dashboards
+                and interactive business insights.
+            </p>
+
+            <div class="step-tag">
+                Analytics Layer
+            </div>
+
+        </a>
 
     </div>
 
-    <p class="flow-label">
+    <div class="bottom-flow">
         Snowflake → dbt Cloud → Power BI
-    </p>
+    </div>
 
 </div>
 
