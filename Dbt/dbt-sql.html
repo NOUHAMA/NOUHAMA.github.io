@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dbt SQL Transformation | Nouha MAACH</title>
 
+<style>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #eef2ff, #f8faff);
+    color: #1f2937;
+}
+
+.container {
+    max-width: 950px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #6366f1;
+}
+
+p, li {
+    color: #6b7280;
+    line-height: 1.7;
+}
+
+img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 11px 16px;
+    background: #6366f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-link">← Back to dbt Project</a>
+
+    <div class="card">
+        <h1>⚙️ dbt SQL Transformation</h1>
+
+        <p>
+            This stage uses dbt and SQL to transform raw Snowflake data into clean,
+            tested, and business-ready analytics models.
+        </p>
+
+        <h2>dbt Setup</h2>
+        <ul>
+            <li>Configured dbt sources from Snowflake</li>
+            <li>Built modular SQL models</li>
+            <li>Organized transformations into layers</li>
+            <li>Added tests and documentation</li>
+        </ul>
+
+        <h2>Transformation Layers</h2>
+
+        <h3>Staging</h3>
+        <p>
+            Raw data is cleaned, renamed, typed, and standardized.
+        </p>
+
+        <h3>Intermediate</h3>
+        <p>
+            Data is enriched and combined into reusable transformation logic.
+        </p>
+
+        <h3>Marts</h3>
+        <p>
+            Final business-ready models are created for reporting and analysis.
+        </p>
+
+        <h2>Data Quality</h2>
+        <ul>
+            <li>Not null tests</li>
+            <li>Unique tests</li>
+            <li>Source freshness checks</li>
+            <li>Relationship validation</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>dbt DAG</h2>
+        <p>
+            The DAG shows the dependency flow between dbt models across the pipeline.
+        </p>
+
+        <img src="DAg.png" alt="dbt DAG Diagram">
+    </div>
+</div>
+
+</body>
+</html>
